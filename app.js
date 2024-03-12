@@ -17,10 +17,8 @@ app.use(bodyParser.json());
 
     mongoose.connect('mongodb+srv://rahul032290:rahulpassword3229@prometheus.mt4xvth.mongodb.net/?retryWrites=true&w=majority&appName=prometheus')
 
- mongoose.connection.on('error',err=>{
-    logError(err);
- })   
 
+//git comment
 
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");

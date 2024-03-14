@@ -1,4 +1,5 @@
 const express= require('express');
+var cors=require('cors');
 const app= express();
 const bodyParser=require('body-parser');
 const morgan=require('morgan');
@@ -7,6 +8,12 @@ const mongoose=require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const dukeRoutes =require('./api/routes/dukes');
+
+
+
+app.use(cors({origin:true,credentials:true}));
+
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -22,7 +29,7 @@ app.use(bodyParser.json());
 
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Origin","Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    // res.header("Access-Control-Allow-Origin","Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
     if(req.method==='OPTIONS')
     {
